@@ -20,7 +20,7 @@ const token = localStorage.getItem('accessToken');
 const postId = localStorage.getItem('currentPostId');
 
 /**
- * The current post being viewed or edited.
+ * The current post viewed.
  * @type {Object|null}
  */
 let currentPost = null;
