@@ -11892,4 +11892,8 @@ body {
   justify-content: center;
 }
 
+.postsContainer {
+  background-color: azure;
+}
+
 /*# sourceMappingURL=index.css.map */
