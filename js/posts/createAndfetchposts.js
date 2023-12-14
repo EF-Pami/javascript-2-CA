@@ -68,7 +68,7 @@ async function searchPosts() {
     }
 
     try {
-        const allPosts = await fetchAllPosts();
+        const allPosts = fetchAllPosts();
         const filteredPosts = allPosts.filter(post =>
             post.title.toLowerCase().includes(searchTerm) ||
             post.body.toLowerCase().includes(searchTerm)
@@ -132,7 +132,7 @@ async function fetchAndDisplayPosts() {
 }
 
 /**
- * Render posts to the DOM.
+ * Rendering posts display to the DOM.
  * @param {Array} posts - Array of posts to display
  */
 function displayPosts(posts) {
@@ -145,7 +145,7 @@ function displayPosts(posts) {
       postElement.dataset.id = post.id;   
       postElement.className = 'post mb-4 border p-3 d-block';
 
-      // Check for media
+      // adding media file if available
       let mediaContent = '';
       if (post.media) {
           mediaContent = `<img src="${post.media}" alt="Post media" class="img-fluid mb-3">`;
@@ -155,9 +155,9 @@ function displayPosts(posts) {
       const tagsString = post.tags.join(', ');
 
       postElement.innerHTML = `
-          <h3>${post.title}</h3>
+          <h3 class="text-break">${post.title}</h3>
           ${mediaContent}
-          <p>${post.body}</p>
+          <p class="text-break">${post.body}</p>
           <small class="text-muted">Tags: ${tagsString}</small>
           <div>
               <small>Created on: ${post.created}</small>
